@@ -17,3 +17,5 @@ Thumbs.db
 _shot_*.png
 _modal_test.html
 _extracted_template.html
+
+.vercel
