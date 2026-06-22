@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Silogan ni Soma · Filipino–Japanese Kitchen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#FDF6EC;font-family:'Hanken Grotesk',sans-serif;color:#2C2C2A;width:100%;overflow-x:hidden;}
+  ::selection{background:#D97706;color:#FDF6EC;}
+  a{text-decoration:none;color:inherit;}
+
+  /* announcement bar */
+  .announce{background:#9C3D2E;color:#FDF6EC;text-align:center;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;padding:9px 16px;font-weight:600;}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(253,246,236,0.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(44,44,42,0.10);}
+  nav{max-width:1200px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .brand{display:flex;align-items:baseline;gap:10px;}
+  .brand .name{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:22px;letter-spacing:0.01em;}
+  .brand .kanji{font-family:'Zen Kaku Gothic New',sans-serif;font-size:13px;color:#9C3D2E;letter-spacing:0.08em;}
+  .navlinks{display:flex;align-items:center;gap:30px;}
+  .navlinks a.link{font-size:15px;font-weight:500;}
+  .btn{display:inline-block;font-weight:600;border-radius:999px;transition:transform 0.18s ease,background 0.18s ease,border-color 0.18s ease,color 0.18s ease;cursor:pointer;border:none;}
+  .btn-primary{background:#D97706;color:#FDF6EC;font-size:15px;padding:11px 22px;}
+  .btn-primary:hover{background:#9C3D2E;transform:translateY(-1px);}
+  .navlinks .mobile-hide{display:inline;}
+
+  /* hero */
+  .hero{position:relative;background:#FDF6EC;}
+  .hero-inner{max-width:1200px;margin:0 auto;padding:84px 32px 72px;display:flex;align-items:center;gap:64px;flex-wrap:wrap;}
+  .hero-copy{flex:1 1 440px;min-width:320px;}
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
+  .eyebrow .rule{height:1px;width:42px;background:#9C3D2E;}
+  .eyebrow .label{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#9C3D2E;font-weight:600;}
+  .eyebrow .jp{font-family:'Zen Kaku Gothic New',sans-serif;font-size:14px;color:#D97706;}
+  h1.title{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(46px,6.4vw,82px);line-height:1.02;letter-spacing:-0.01em;color:#2C2C2A;margin-bottom:22px;}
+  .lede{font-size:21px;line-height:1.5;color:#5a544c;max-width:30ch;margin-bottom:36px;font-weight:500;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-lg{font-size:16px;padding:15px 30px;}
+  .btn-amber{background:#D97706;color:#FDF6EC;}
+  .btn-amber:hover{background:#9C3D2E;transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:#2C2C2A;border:1.5px solid rgba(44,44,42,0.28);}
+  .btn-ghost:hover{border-color:#9C3D2E;color:#9C3D2E;}
+
+  .hero-figure{flex:1 1 420px;min-width:320px;position:relative;}
+  .hero-photo{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(156,61,46,0.18);box-shadow:0 24px 60px rgba(44,44,42,0.16);cursor:pointer;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
+  .hero-photo:hover img{transform:scale(1.04);}
+  .hero-photo .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 20px 16px;background:linear-gradient(to top,rgba(44,44,42,0.78),rgba(44,44,42,0));color:#FDF6EC;font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;}
+  .hero-badge{position:absolute;top:-18px;right:-14px;width:84px;height:84px;border-radius:50%;background:#9C3D2E;color:#FDF6EC;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho B1',serif;font-size:30px;box-shadow:0 8px 24px rgba(156,61,46,0.30);transform:rotate(-6deg);}
+  .wave{height:24px;width:100%;background-repeat:repeat-x;background-position:center bottom;background-size:80px 24px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='24'><path d='M0 22 A20 20 0 0 1 40 22 A20 20 0 0 1 80 22' fill='none' stroke='%23D97706' stroke-width='1.5' opacity='0.5'/></svg>");}
+
+  /* menu */
+  .menu{background:#FFFFFF;padding:84px 32px 92px;}
+  .menu-inner{max-width:1200px;margin:0 auto;}
+  .section-head{text-align:center;margin-bottom:54px;}
+  .section-head .kicker{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px;}
+  .section-head .kicker .rule{height:1px;width:32px;background:#D97706;}
+  .section-head .kicker .label{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#D97706;font-weight:600;}
+  .section-head h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(34px,4.4vw,52px);color:#2C2C2A;}
+  .hint{margin-top:12px;font-size:14px;color:#9a9388;letter-spacing:0.02em;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;}
+  .card{background:#FDF6EC;border:1px solid rgba(44,44,42,0.10);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease;text-align:left;font:inherit;color:inherit;padding:0;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(44,44,42,0.12);}
+  .card:focus-visible{outline:3px solid #D97706;outline-offset:2px;}
+  .card-photo{position:relative;aspect-ratio:1/1;overflow:hidden;background:#F3E4CE;}
+  .card-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;}
+  .card:hover .card-photo img{transform:scale(1.05);}
+  .card-kanji{position:absolute;top:12px;left:12px;width:38px;height:38px;border-radius:50%;background:#9C3D2E;color:#FDF6EC;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho B1',serif;font-size:19px;}
+  .card-zoom{position:absolute;bottom:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(253,246,236,0.92);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(6px);transition:opacity 0.2s ease,transform 0.2s ease;}
+  .card:hover .card-zoom{opacity:1;transform:translateY(0);}
+  .card-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:7px;flex:1;}
+  .card-body .romaji{font-family:'Zen Kaku Gothic New',sans-serif;font-size:13px;color:#D97706;letter-spacing:0.06em;}
+  .card-body h3{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:22px;color:#2C2C2A;}
+  .card-body p{font-size:14.5px;line-height:1.5;color:#6a6359;}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;z-index:100;background:rgba(28,22,18,0.62);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity 0.25s ease,visibility 0.25s ease;}
+  .overlay.open{opacity:1;visibility:visible;}
+  .modal{position:relative;background:#FDF6EC;border-radius:18px;overflow:hidden;width:min(880px,100%);max-height:90vh;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 30px 80px rgba(0,0,0,0.45);transform:translateY(16px) scale(0.98);transition:transform 0.28s cubic-bezier(.2,.8,.2,1);}
+  .overlay.open .modal{transform:translateY(0) scale(1);}
+  .modal-photo{position:relative;background:#F3E4CE;min-height:320px;}
+  .modal-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .modal-kanji{position:absolute;top:16px;left:16px;width:48px;height:48px;border-radius:50%;background:#9C3D2E;color:#FDF6EC;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho B1',serif;font-size:24px;box-shadow:0 6px 18px rgba(0,0,0,0.25);}
+  .modal-body{padding:40px 38px;display:flex;flex-direction:column;justify-content:center;gap:12px;overflow-y:auto;}
+  .modal-body .num{display:flex;align-items:center;gap:10px;}
+  .modal-body .num .rule{height:1px;width:24px;background:#D97706;}
+  .modal-body .num span{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#9C3D2E;font-weight:700;}
+  .modal-body .romaji{font-family:'Zen Kaku Gothic New',sans-serif;font-size:15px;color:#D97706;letter-spacing:0.06em;}
+  .modal-body h3{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:34px;color:#2C2C2A;line-height:1.1;}
+  .modal-body p{font-size:16px;line-height:1.65;color:#6a6359;}
+  .modal-sig{display:inline-flex;align-items:center;gap:8px;margin-top:6px;}
+  .modal-sig .bar{height:2px;width:20px;background:#D97706;border-radius:1px;}
+  .modal-sig span{font-size:13px;color:#D97706;font-weight:600;letter-spacing:0.08em;}
+  .modal-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(253,246,236,0.92);color:#2C2C2A;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:background 0.18s ease,transform 0.18s ease;}
+  .modal-close:hover{background:#D97706;color:#FDF6EC;transform:rotate(90deg);}
+
+  /* story */
+  .story{position:relative;background:#9C3D2E;color:#FDF6EC;padding:90px 32px;overflow:hidden;}
+  .story .ghost{position:absolute;top:0;right:4%;font-family:'Shippori Mincho B1',serif;font-size:230px;line-height:1;color:rgba(253,246,236,0.06);user-select:none;pointer-events:none;}
+  .story-inner{max-width:760px;margin:0 auto;position:relative;text-align:center;}
+  .story .kicker{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;}
+  .story .kicker .rule{height:1px;width:32px;background:#D97706;}
+  .story .kicker .label{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#F0C99B;font-weight:600;}
+  .story h2{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:clamp(30px,4vw,46px);margin-bottom:26px;line-height:1.15;}
+  .story p{font-size:19px;line-height:1.7;color:#F4E3D2;}
+
+  /* footer */
+  footer{background:#2C2C2A;color:#FDF6EC;padding:60px 32px 40px;}
+  .foot-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:36px;}
+  .foot-brand{max-width:340px;}
+  .foot-brand .row{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;}
+  .foot-brand .name{font-family:'Shippori Mincho B1',serif;font-weight:700;font-size:24px;}
+  .foot-brand .kanji{font-family:'Zen Kaku Gothic New',sans-serif;font-size:13px;color:#D97706;}
+  .foot-brand p{font-size:14.5px;line-height:1.6;color:#b3aea4;}
+  .foot-col{display:flex;flex-direction:column;gap:10px;}
+  .foot-col .head{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#D97706;font-weight:600;}
+  .foot-col .info{font-size:15px;color:#e9e4da;}
+  .socials{display:flex;gap:12px;}
+  .socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(253,246,236,0.25);display:flex;align-items:center;justify-content:center;transition:background 0.18s ease,border-color 0.18s ease;}
+  .socials a:hover{background:#D97706;border-color:#D97706;}
+  .foot-bottom{max-width:1200px;margin:40px auto 0;padding-top:22px;border-top:1px solid rgba(253,246,236,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .foot-bottom span{font-size:13px;color:#8f8a80;}
+
+  @media (max-width:720px){
+    .navlinks .mobile-hide{display:none;}
+    .modal{grid-template-columns:1fr;max-height:88vh;}
+    .modal-photo{aspect-ratio:4/3;min-height:0;}
+    .modal-body{padding:28px 26px;}
+    .hero-inner{padding:56px 24px 48px;gap:40px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- announcement -->
+<div class="announce">Now serving · Dine-in &amp; pickup daily · 11:00–21:00</div>
+
+<!-- nav -->
+<header class="nav">
+  <nav>
+    <a href="#top" class="brand">
+      <span class="name">Silogan ni Soma</span>
+      <span class="kanji">食堂</span>
+    </a>
+    <div class="navlinks">
+      <a href="#menu" class="link mobile-hide">Menu</a>
+      <a href="#story" class="link mobile-hide">Our story</a>
+      <a href="#contact" class="link mobile-hide">Contact</a>
+      <a href="#menu" class="btn btn-primary">Order now</a>
+    </div>
+  </nav>
+</header>
+
+<!-- hero -->
+<section id="top" class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">
+        <span class="rule"></span>
+        <span class="label">Filipino–Japanese Kitchen</span>
+        <span class="jp">日本 × フィリピン</span>
+      </div>
+      <h1 class="title">Silogan<br>ni Soma</h1>
+      <p class="lede">Filipino comfort. Japanese soul. Every silog, plated with care.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-lg btn-amber">See our menu</a>
+        <a href="#contact" class="btn btn-lg btn-ghost">Order now</a>
+      </div>
+    </div>
+
+    <div class="hero-figure">
+      <!-- hero dish photo -->
+      <div class="hero-photo" id="heroPhoto" role="button" tabindex="0" aria-label="View Tapsilog Donburi">
+        <img src="images/tapsilog.jpg" alt="Tapsilog Donburi — garlic-cured beef tapa over rice with a soy-glazed egg">
+        <div class="cap">Tapsilog Donburi · 今日の一品</div>
+      </div>
+      <div class="hero-badge">旨</div>
+    </div>
+  </div>
+  <div class="wave"></div>
+</section>
+
+<!-- menu -->
+<section id="menu" class="menu">
+  <div class="menu-inner">
+    <div class="section-head">
+      <div class="kicker">
+        <span class="rule"></span>
+        <span class="label">The Signatures</span>
+        <span class="rule"></span>
+      </div>
+      <h2>Featured silog, reimagined</h2>
+      <p class="hint">Tap any dish to see it up close ↓</p>
+    </div>
+    <div class="grid" id="menuGrid"><!-- cards injected by JS --></div>
+  </div>
+</section>
+
+<!-- modal -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-photo">
+      <img id="modalImg" src="" alt="">
+      <div class="modal-kanji" id="modalKanji"></div>
+    </div>
+    <div class="modal-body">
+      <div class="num"><span class="rule"></span><span id="modalNum"></span></div>
+      <div class="romaji" id="modalRomaji"></div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div class="modal-sig"><span class="bar"></span><span>Signature</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- story -->
+<section id="story" class="story">
+  <div class="ghost">郷</div>
+  <div class="story-inner">
+    <div class="kicker">
+      <span class="rule"></span>
+      <span class="label">Our story</span>
+      <span class="rule"></span>
+    </div>
+    <h2>A home-style silog, plated the Japanese way</h2>
+    <p>The Filipino silog — savory marinated meat, garlic rice, and a perfect egg — is breakfast, comfort, and celebration all at once. At Silogan ni Soma we honor that tradition and reimagine it through Japanese technique: donburi bowls, dashi-rich broths, precise knifework, and ingredients treated with quiet respect. Two food cultures, one warm table.</p>
+  </div>
+</section>
+
+<!-- footer -->
+<footer id="contact">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="row">
+        <span class="name">Silogan ni Soma</span>
+        <span class="kanji">食堂</span>
+      </div>
+      <p>Filipino comfort, Japanese soul. Crafted fresh, served warm.</p>
+    </div>
+    <div class="foot-col">
+      <span class="head">Find us</span>
+      <span class="info">128 Mabini St, Brgy. Poblacion, Makati</span>
+      <span class="info">hello@siloganisoma.ph · +63 917 555 0142</span>
+    </div>
+    <div class="foot-col">
+      <span class="head">Follow</span>
+      <div class="socials">
+        <a href="#contact" aria-label="Instagram"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FDF6EC" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.1" fill="#FDF6EC" stroke="none"></circle></svg></a>
+        <a href="#contact" aria-label="Facebook"><svg width="19" height="19" viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#FDF6EC">f</text></svg></a>
+        <a href="#contact" aria-label="Email"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#FDF6EC" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5 L12 13 L20.5 6.5"></path></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Silogan ni Soma. All rights reserved.</span>
+    <span>Made with garlic rice and good company.</span>
+  </div>
+</footer>
+
+<script>
+  const dishes = [
+    { num:'01', kanji:'丼', img:'images/tapsilog.jpg',   romaji:'タプシログ丼',     name:'Tapsilog Donburi',  desc:'Garlic-cured beef tapa over rice with a soy-glazed egg.' },
+    { num:'02', kanji:'麺', img:'images/longsilog.jpg',  romaji:'ロングシログ',     name:'Longsilog Ramen',   desc:'Sweet longganisa in a deep pork-dashi broth, soft egg.' },
+    { num:'03', kanji:'飯', img:'images/tocilog.jpg',    romaji:'トシログ丼',       name:'Tocilog Rice Bowl', desc:'Sweet-cured tocino, furikake, and sunny egg on warm rice.' },
+    { num:'04', kanji:'丼', img:'images/adobosilog.jpg', romaji:'アドボシログ丼',   name:'Adobosilog Don',    desc:'Slow-braised adobo pork belly, ramen egg, scallion, rice.' },
+    { num:'05', kanji:'魚', img:'images/bangsilog.jpg',  romaji:'バングシログ丼',   name:'Bangsilog Don',     desc:'Crispy bangus milkfish, pickled ginger slaw, soft egg over garlic rice.' },
+    { num:'06', kanji:'鶏', img:'images/chicksilog.jpg', romaji:'チックシログカツ', name:'Chicksilog Katsu',  desc:'Panko-fried chicken fillet, tonkatsu glaze, garlic rice, fried egg.' }
+  ];
+
+  // build cards
+  const grid = document.getElementById('menuGrid');
+  dishes.forEach((d, i) => {
+    const card = document.createElement('button');
+    card.className = 'card';
+    card.type = 'button';
+    card.setAttribute('aria-label', 'View ' + d.name);
+    card.innerHTML =
+      '<div class="card-photo">' +
+        '<img src="' + d.img + '" alt="' + d.name + '" loading="lazy">' +
+        '<span class="card-kanji">' + d.kanji + '</span>' +
+        '<span class="card-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9C3D2E" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M16 16 L21 21"></path><path d="M11 8 v6 M8 11 h6"></path></svg></span>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<span class="romaji">' + d.romaji + '</span>' +
+        '<h3>' + d.name + '</h3>' +
+        '<p>' + d.desc + '</p>' +
+      '</div>';
+    card.addEventListener('click', () => openModal(i));
+    grid.appendChild(card);
+  });
+
+  // modal logic
+  const overlay = document.getElementById('overlay');
+  const mImg = document.getElementById('modalImg');
+  const mKanji = document.getElementById('modalKanji');
+  const mNum = document.getElementById('modalNum');
+  const mRomaji = document.getElementById('modalRomaji');
+  const mTitle = document.getElementById('modalTitle');
+  const mDesc = document.getElementById('modalDesc');
+  let lastFocused = null;
+
+  function openModal(i) {
+    const d = dishes[i];
+    mImg.src = d.img;
+    mImg.alt = d.name;
+    mKanji.textContent = d.kanji;
+    mNum.textContent = 'Dish ' + d.num;
+    mRomaji.textContent = d.romaji;
+    mTitle.textContent = d.name;
+    mDesc.textContent = d.desc;
+    lastFocused = document.activeElement;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('modalClose').focus();
+  }
+  function closeModal() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+
+  // hero opens the featured dish (index 0)
+  const heroPhoto = document.getElementById('heroPhoto');
+  heroPhoto.addEventListener('click', () => openModal(0));
+  heroPhoto.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(0); } });
+</script>
+
+</body>
+</html>
